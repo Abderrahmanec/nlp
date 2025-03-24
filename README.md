@@ -81,3 +81,8 @@ As I progress in learning, I plan to:
 
 ## Installation and Setup
 To get started with any of the projects in this repository, you can follow the installation steps provided for each section.
+=======
+# Project Introduction
+
+Project details
+>>>>>>> 7a0d18c (Initial commit with project structure)
