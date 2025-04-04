@@ -9,7 +9,7 @@ corpus = [
     "I am learning Natural Language Processing",
     "AI and NLP are exciting fields of study",
     "Machine learning powers many AI applications",
-    "Deep learning is a subset of machine learning"
+    "Deep learning is a subset of machine learning learning"
 ]
 
 # Create vectorizers
