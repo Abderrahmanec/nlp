@@ -1,0 +1,60 @@
+@startuml
+skinparam monochrome true
+skinparam defaultFontName Arial
+skinparam classFontSize 14
+skinparam actorFontSize 14
+skinparam ArrowFontSize 12
+
+actor "End User" as User
+
+rectangle "NLP Pipeline" {
+  package "Data Processing" {
+    [Data Collection] as DataCollection
+    [Data Preprocessing] as DataPreprocessing
+  }
+  
+  package "Feature Engineering" {
+    [Feature Representation] as FeatureRep
+  }
+  
+  package "Modeling" {
+    [Neural Network Model] as NNModel
+    [Training Process] as Training
+  }
+  
+  package "Deployment" {
+    [Evaluation] as Eval
+    [Inference] as Infer
+  }
+}
+
+' Main Data Flow
+User -> DataCollection : 1. Provide text data
+DataCollection -> DataPreprocessing : 2. Raw data
+DataPreprocessing -> FeatureRep : 3. Cleaned text
+FeatureRep -> NNModel : 4. Feature vectors
+NNModel -> Training : 5. Train model
+Training -> NNModel : 6. Updated weights
+NNModel -> Infer : 9. Deploy model
+Infer -> User : 10. Get predictions
+
+' Enhanced Feedback Loop
+NNModel -> Eval : 7. Evaluate
+Eval -[#bold,#red]-> NNModel : 8. Feedback\n(metrics & improvements)
+note on link #red: Accuracy\nPrecision\nRecall\nF1 Score
+
+' Notes
+note top of DataCollection
+  Data sources:
+  - Databases
+  - Web scraping
+  - APIs
+end note
+
+note right of NNModel
+  Model types:
+  • BERT
+  • LSTM
+  • Transformers
+end note
+@enduml
