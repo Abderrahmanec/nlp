@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Feedback Analyzer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header class="glass-header">
+        <div class="header-content">
+            <h1><i class="fas fa-comment-alt"></i> Customer Feedback Analyzer</h1>
+            <nav>
+                <a href="index.html" class="active"><i class="fas fa-box-open"></i> Products</a>
+                <a href="dashboard.html"><i class="fas fa-chart-bar"></i> Dashboard</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <section class="products-container">
+            <div class="section-header">
+                <h2><i class="fas fa-star"></i> Featured Products</h2>
+                <div class="search-bar">
+                    <input type="text" placeholder="Search products..." id="searchInput">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+            
+            <div class="products-grid" id="productsGrid">
+                <div class="product-card">
+                    <img src="images/resize-image.png" alt="Wireless Headphones" title="Experience immersive sound with noise cancellation and 30-hour battery life.">
+                    <h3>Iphone 14</h3>
+                    <h2>$1440</h2>
+                    <button onclick="openFeedbackModal(1)">Leave Feedback</button>
+                </div>
+            
+                <div class="product-card">
+                    <img src="/images/smartwatch-svgrepo-com.svg" alt="Smart Watch" title="Track your health and fitness with real-time monitoring and notifications.">
+                    <h3>Smart Watch</h3>
+                    <h2>$299</h2>
+                    <button onclick="openFeedbackModal(2)">Leave Feedback</button>
+                </div>
+            
+                <div class="product-card">
+                    <img src="/images/portable-speaker-svgrepo-com.svg" alt="Bluetooth Speaker" title="Compact, waterproof, and delivers powerful sound—perfect for travel.">
+                    <h3>Bluetooth Speaker</h3>
+                    <h2>$89</h2>
+                    <button onclick="openFeedbackModal(3)">Leave Feedback</button>
+                </div>
+            
+                <div class="product-card">
+                    <img src="/images/resize-image.png" alt="Laptop Backpack" title="Durable and water-resistant backpack with USB charging port and multiple compartments.">
+                    <h3>Laptop Backpack</h3>
+                    <h2>$59</h2>
+                    <button onclick="openFeedbackModal(4)">Leave Feedback</button>
+                </div>
+            
+                <div class="product-card">
+                    <img src="/images/resize-image.png" alt="Ergonomic Office Chair" title="Adjustable comfort with lumbar support—ideal for long workdays.">
+                    <h3>Ergonomic Office Chair</h3>
+                    <h2>$179</h2>
+                    <button onclick="openFeedbackModal(5)">Leave Feedback</button>
+                </div>
+            
+                <div class="product-card">
+                    <img src="/resize-image.png" alt="4K Monitor" title="Crystal-clear resolution, vivid colors, and ultra-slim bezel for productivity and entertainment.">
+                    <h3>4K UHD Monitor</h3>
+                    <h2>$349</h2>
+                    <button onclick="openFeedbackModal(6)">Leave Feedback</button>
+                </div>
+            </div>
+            
+            
+        </section>
+
+        <!-- Feedback Modal -->
+        <div class="modal" id="feedbackModal">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+                <div class="modal-header">
+                    <h2><i class="fas fa-edit"></i> Share Your Feedback</h2>
+                    <p>We value your opinion about our products</p>
+                </div>
+                <form id="feedbackForm">
+                    <input type="hidden" id="productId">
+                    <div class="form-group">
+                        <label for="comment"><i class="fas fa-comment-dots"></i> Your Experience:</label>
+                        <textarea id="comment" placeholder="Tell us what you think..." required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="rating"><i class="fas fa-star"></i> Rating:</label>
+                        <div class="rating-stars">
+                            <input type="radio" id="star5" name="rating" value="5">
+                            <label for="star5" title="Excellent">5 stars</label>
+                            <input type="radio" id="star4" name="rating" value="4">
+                            <label for="star4" title="Very Good">4 stars</label>
+                            <input type="radio" id="star3" name="rating" value="3">
+                            <label for="star3" title="Good">3 stars</label>
+                            <input type="radio" id="star2" name="rating" value="2">
+                            <label for="star2" title="Fair">2 stars</label>
+                            <input type="radio" id="star1" name="rating" value="1">
+                            <label for="star1" title="Poor">1 star</label>
+                        </div>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-paper-plane"></i> Submit Feedback
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Success Toast -->
+        <div class="toast" id="successToast">
+            <div class="toast-content">
+                <i class="fas fa-check-circle"></i>
+                <span>Thank you for your feedback!</span>
+            </div>
+        </div>
+    </main>
+
+    <footer class="glass-footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Customer Feedback Analyzer | All Rights Reserved  
+    
+            </p>
+            <div class="social-links">
+                <a href="https://www.github.com/Abderrahmanec"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/abderrahmanemc/"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.hackerrank.com/profile/Abderrahmanemc"><i class="fab fa-hackerrank"></i></a>
+                <a href="https://www.kaggle.com/abdoumc"><i class="fab fa-kaggle"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
